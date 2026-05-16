@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+  </script>
+  <style>
+        body {             
+            background-image: url("./img/bg-nueva.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100vh; 
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 400px 1fr;
+            width: 95%;
+            max-width: 1400px;
+            align-items: center; 
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .left-side { align-items: flex-end; } 
+        .right-side { align-items: flex-start; }
+
+        .center-controls {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 2px solid #c0202f;            
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #c0202f;
+            font-style: italic;
+            margin: 0;
+            line-height: 1;
+        }
+
+        h4 { margin: 10px 0; font-size: 20px; color: #333; }
+
+        img {
+          object-fit: cover;
+        }
+
+        .btn-concursar {
+            background-color: #c0202f;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(192, 32, 47, 0.4);
+        }
+
+        .btn-concursar:hover { 
+            transform: scale(1.1); 
+            background-color: #a01a27; 
+        }
+
+        .user-card {
+            width: 220px;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: popIn 0.5s ease-out;
+        }
+
+        .left-side .user-card { border-left: 6px solid #2c3e50; }
+        .right-side .user-card { border-right: 6px solid #c0202f; text-align: right; }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        #responda {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #27ae60;
+            min-height: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                height: auto; 
+                padding: 20px 10px;
+            }
+
+            .main-container {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 25px;
+            }
+
+            .center-controls {
+                order: 1;
+                width: 100%;
+                max-width: 450px;
+                box-sizing: border-box;
+                padding: 30px 15px;
+            }
+
+            #left-column {
+                order: 2;
+            }
+           
+            #right-column {
+                order: 3;
+            }
+
+            .mx-15 {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .side-column {
+                width: 100%;
+                align-items: center !important;
+                gap: 15px;
+            }
+
+            .user-card {
+                width: 90%;
+                max-width: 320px;
+                text-align: left !important;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+  </style>
+  <title>JS - 7.2</title>
+</head>
+  
+<body>
+      
+     <div class="main-container">
+        <div id="left-column" class="side-column left-side mx-15"></div>
+ 
+        <div class="center-controls">           
+            <h1>Concurso</h1>
+            <p>Calificacion de los participantes:</p>
+            <button class="btn-concursar mt-5" onclick="concursar()">CONCURSAR</button>
+            <p id="responda" style="margin-top:20px; font-weight:bold;"></p>
+        </div>
+
+        <div id="right-column" class="side-column right-side mx-15"></div>
+    </div>
+  
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
